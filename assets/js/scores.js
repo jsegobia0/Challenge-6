@@ -1,0 +1,1 @@
+// When game Ends, Scores and Initials are Saved to localStorage
