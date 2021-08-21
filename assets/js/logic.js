@@ -1,12 +1,38 @@
-// After Start is clicked, 
-// Timer starts countdown and User is presented with a Question
+var questions = $('questions');
+var timer = $('timer');
+var choices = $('choices');
+var submit = $('submit');
+var start = $('start');
+var initials = $('initials');
+var feedback = $('feedback');
 
+var currentQuestionIndex = 0;
+var timerId;
+var time = questions.length * 15;
 
-    
-// When a question is answered Wrong, Time is Subtracted from Timer
+function startQuiz() {
+    var startScreen = $('start-screen');
+    startScreen.attr("class", "hide");
+    questions.removeAttr("class");
+    timer = setInterval(clockTick, 1000);
+    timer.textcontent = time;
+    getQuestions();
+};
 
-// When Timer reaches 0, the game Ends
+function clockTick() {
+    time--;
+    timer.textcontent = time;
+    if (time <= 0) {
+        quizEnd();
+    }
+};
 
-
-
-
+function getQuestions() {
+    var currentQuestion = questions[currentQuestionIndex];
+    var title = $("question-title");
+    title.textcontent = currentQuestion.title;
+    choices.innerHTML = "";
+    currentQuestion.choices.forEach(function(choice, 1) {
+        var choiceNode = ;        
+    });
+}
